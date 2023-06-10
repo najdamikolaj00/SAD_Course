@@ -45,43 +45,43 @@ binwidth <- IQR(energy) / 4
 
 # Histogram
 
-# histogram <- ggplot(data, aes(x = Country)) +
-#   geom_bar(aes(y = energy), stat = "identity", fill = "steelblue", color = "white") + # nolint
-#   labs(x = "Kraje", y = "Zużycie energii netto (mld kWh)") +
-#   ggtitle("Zużycie energii netto w Azji (2003)") +
-#   theme_minimal() +
-#   theme(axis.text.x = element_text(angle = 45, hjust = 1),
-#         plot.title = element_text(hjust = 0.5))
+histogram <- ggplot(data, aes(x = Country)) +
+  geom_bar(aes(y = energy), stat = "identity", fill = "steelblue", color = "white") + # nolint
+  labs(x = "Kraje", y = "Zużycie energii netto (mld kWh)") +
+  ggtitle("Zużycie energii netto w Azji (2003)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(hjust = 0.5))
 
-# print(histogram) # nolint
-# ggsave("histogram_energia.pdf", plot = histogram, device = "pdf") # nolint
+print(histogram) # nolint
+ggsave("histogram_energia.pdf", plot = histogram, device = "pdf") # nolint
 
 
 #Pudełko z wąsami
 
-# boxplot <- ggplot(data, aes(y = energy)) +
-#   geom_boxplot(fill = "steelblue", color = "black", width = 0.5, lwd = 1.5, lty = 1) + # nolint
-#   labs(y = "Zużycie energii netto (mld kWh)") +
-#   ggtitle("Pudełko z wąsami - Zużycie energii netto w Azji (2003)") +
-#   theme_minimal() +
-#   theme(panel.grid.major = element_blank(),
-#         panel.grid.minor = element_blank(), # nolint
-#         axis.line = element_line(), # nolint
-#         plot.title = element_text(hjust = 0.5))
+boxplot <- ggplot(data, aes(y = energy)) +
+  geom_boxplot(fill = "steelblue", color = "black", width = 0.5, lwd = 1.5, lty = 1) + # nolint
+  labs(y = "Zużycie energii netto (mld kWh)") +
+  ggtitle("Pudełko z wąsami - Zużycie energii netto w Azji (2003)") +
+  theme_minimal() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), # nolint
+        axis.line = element_line(), # nolint
+        plot.title = element_text(hjust = 0.5))
 
-# print(boxplot) # nolint
-# ggsave("boxplot_energia.pdf", plot = boxplot, device = "pdf") # nolint
+print(boxplot) # nolint
+ggsave("boxplot_energia.pdf", plot = boxplot, device = "pdf") # nolint
 
 
 # Testy normalności
-# shapiro_result <- shapiro.test(energy)
-# print(shapiro_result)
+shapiro_result <- shapiro.test(energy)
+print(shapiro_result)
 
-# ks_result <- ks.test(energy, "pnorm")
-# print(ks_result)
+ks_result <- ks.test(energy, "pnorm")
+print(ks_result)
 
-# jarque_result <- jarque.bera.test(energy)
-# print(jarque_result)
+jarque_result <- jarque.bera.test(energy)
+print(jarque_result)
 
 
 # Przekształcenie logarytmiczne
