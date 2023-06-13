@@ -1,5 +1,5 @@
 # Wczytanie pakietów
-#if(!require(tseries)){install.packages("tseries", "readxl", "ggplot2")} # nolint
+#if(!require(tseries, readxl, ggplot2)){install.packages("tseries", "readxl", "ggplot2")} # nolint
 library(readxl)
 library(ggplot2)
 library(tseries)
