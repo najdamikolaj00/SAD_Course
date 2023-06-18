@@ -1,5 +1,8 @@
 # Wczytanie pakietów
-#if(!require(tseries, readxl, ggplot2)){install.packages("tseries", "readxl", "ggplot2")} # nolint
+# install.packages("tseries")
+# install.packages("readxl")
+# install.packages("ggplot2")
+
 library(readxl)
 library(ggplot2)
 library(tseries)
@@ -54,7 +57,7 @@ histogram <- ggplot(data, aes(x = Country)) +
         plot.title = element_text(hjust = 0.5))
 
 print(histogram) # nolint
-ggsave("histogram_energia.pdf", plot = histogram, device = "pdf") # nolint
+#ggsave("histogram_energia.pdf", plot = histogram, device = "pdf") # nolint
 
 
 #Pudełko z wąsami
@@ -70,7 +73,7 @@ boxplot <- ggplot(data, aes(y = energy)) +
         plot.title = element_text(hjust = 0.5))
 
 print(boxplot) # nolint
-ggsave("boxplot_energia.pdf", plot = boxplot, device = "pdf") # nolint
+#ggsave("boxplot_energia.pdf", plot = boxplot, device = "pdf") # nolint
 
 
 # Testy normalności
@@ -97,7 +100,7 @@ histogram <- ggplot(data, aes(x = Country)) +
         plot.title = element_text(hjust = 0.5))
 
 #print(histogram) # nolint
-ggsave("histogram_energia_log.pdf", plot = histogram, device = "pdf") # nolint
+#ggsave("histogram_energia_log.pdf", plot = histogram, device = "pdf") # nolint
 
 boxplot <- ggplot(data, aes(y = transformed_log)) +
   geom_boxplot(fill = "steelblue", color = "black", width = 0.5, lwd = 1.5, lty = 1) + # nolint
@@ -110,7 +113,7 @@ boxplot <- ggplot(data, aes(y = transformed_log)) +
         plot.title = element_text(hjust = 0.5))
 
 print(boxplot) # nolint
-ggsave("boxplot_energia_log.pdf", plot = boxplot, device = "pdf") # nolint
+#ggsave("boxplot_energia_log.pdf", plot = boxplot, device = "pdf") # nolint
 
 # Weryfikacja normalności dla przekształcenia logarytmicznego
 shapiro_result <- shapiro.test(transformed_log)
@@ -133,8 +136,8 @@ histogram <- ggplot(data, aes(x = Country)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
         plot.title = element_text(hjust = 0.5))
 
-#print(histogram) # nolint
-ggsave("histogram_energia_sqrt.pdf", plot = histogram, device = "pdf") # nolint
+print(histogram) # nolint
+#ggsave("histogram_energia_sqrt.pdf", plot = histogram, device = "pdf") # nolint
 
 boxplot <- ggplot(data, aes(y = transformed_sqrt)) +
   geom_boxplot(fill = "steelblue", color = "black", width = 0.5, lwd = 1.5, lty = 1) + # nolint
@@ -147,7 +150,7 @@ boxplot <- ggplot(data, aes(y = transformed_sqrt)) +
         plot.title = element_text(hjust = 0.5))
 
 print(boxplot) # nolint
-ggsave("boxplot_energia_sqrt.pdf", plot = boxplot, device = "pdf") # nolint
+#ggsave("boxplot_energia_sqrt.pdf", plot = boxplot, device = "pdf") # nolint
 
 # Weryfikacja normalności dla przekształcenia pierwiastka kwadratowego
 shapiro_result <- shapiro.test(transformed_sqrt)
@@ -170,8 +173,8 @@ histogram <- ggplot(data, aes(x = Country)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
         plot.title = element_text(hjust = 0.5))
 
-#print(histogram) # nolint
-ggsave("histogram_energia_cbrt.pdf", plot = histogram, device = "pdf") # nolint
+print(histogram) # nolint
+#ggsave("histogram_energia_cbrt.pdf", plot = histogram, device = "pdf") # nolint
 
 boxplot <- ggplot(data, aes(y = transformed_cbrt)) +
   geom_boxplot(fill = "steelblue", color = "black", width = 0.5, lwd = 1.5, lty = 1) + # nolint
@@ -184,7 +187,7 @@ boxplot <- ggplot(data, aes(y = transformed_cbrt)) +
         plot.title = element_text(hjust = 0.5))
 
 print(boxplot) # nolint
-ggsave("boxplot_energia_cbrt.pdf", plot = boxplot, device = "pdf") # nolint
+#ggsave("boxplot_energia_cbrt.pdf", plot = boxplot, device = "pdf") # nolint
 
 # Weryfikacja normalności dla przekształcenia pierwiastka sześciennego
 shapiro_result <- shapiro.test(transformed_cbrt)
