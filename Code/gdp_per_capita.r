@@ -8,8 +8,8 @@ data <- read.csv("Data/gdp_per_capita.csv", header = TRUE)
 print(head(data))
 
 # Sprawdzenie założeń - normalność rozkładu
-# shapiro_result <- shapiro.test(data$gdpPercap)
-# print(shapiro_result) # Brak rozkładu normalnego
+shapiro_result <- shapiro.test(data$gdpPercap)
+print(shapiro_result) # Brak rozkładu normalnego
 
 # Podział danych według kontynentów
 continent_data <- split(data$gdpPercap, data$continent)
